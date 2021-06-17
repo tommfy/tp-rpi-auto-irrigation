@@ -11,7 +11,7 @@ GPIO.setmode(GPIO.BCM)
 # importing requests and json
 import requests, json
 # base URL
-BASE_URL = "https://api.openweathermap.org/data/2.5/weather?lat=51.37610581678528&lon=0.44608559709327733&appid=XXXXXXXXXXXXXX"
+BASE_URL = "https://api.openweathermap.org/data/2.5/weather?lat=51.37610581678528&lon=0.44608559709327733&appid=886705b4c1182eb1c69f28eb8c520e20"
 # HTTP request
 response = requests.get(BASE_URL)
 
@@ -31,14 +31,17 @@ if response.status_code == 200:
    data = response.json()
    # weather report
    report = data['weather']
-   print(f"Weather Report: {report[0]['description']}")
+   print(f"Weather Report: {report[0]['main']}")
+
+   rainstatus = (f"Weather Report: {report[0]['main']}")
 
 else:
    # showing the error message
    print("Error connecting to API")
 
 
-
   # If rain then run sprinkler
-  if report not in ['rain', 'shower rain', 'thunderstorm', 'snow', 'Rain', 'Shower Rain', 'Thunderstorm', 'Snow', 'Shower rain', 'Thunder storm', 'Thunder Storm']:
-    run_sprinkler(config)
+
+   # if report not in ['rain', 'shower rain', 'thunderstorm', 'snow', 'Rain', 'Shower Rain', 'Thunderstorm', 'Snow', 'Shower rain', 'Thunder storm', 'Thunder Storm']:
+     # run_sprinkler(config)
+     # print "Success! No Rain"
