@@ -11,7 +11,7 @@ GPIO.setmode(GPIO.BCM)
 # importing requests and json
 import requests, json
 # base URL
-BASE_URL = "https://api.openweathermap.org/data/2.5/weather?lat=51.37610581678528&lon=0.44608559709327733&appid=886705b4c1182eb1c69f28eb8c520e20"
+BASE_URL = "https://api.openweathermap.org/data/2.5/weather?lat=51.37610581678528&lon=0.44608559709327733&appid=XXXXXXXXXXXXXX"
 # HTTP request
 response = requests.get(BASE_URL)
 
@@ -33,7 +33,6 @@ if response.status_code == 200:
    report = data['weather']
    print(f"Weather Report: {report[0]['main']}")
 
-   rainstatus = (f"Weather Report: {report[0]['main']}")
 
 else:
    # showing the error message
